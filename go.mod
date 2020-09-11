@@ -1,4 +1,4 @@
-module aberetta/gotag
+module github.com/viki-pedia/versigo
 
 go 1.15
 
