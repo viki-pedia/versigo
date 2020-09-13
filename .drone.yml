@@ -4,8 +4,22 @@ type: docker
 name: default
 
 steps:
-- name: backend
+- name: test & build
   image: golang
   commands:
   - go test
   - go build
+
+- name: publish
+  image: plugins/github-release
+  settings:
+    api_key : github_deploy
+    files: versigo
+    title: some title
+    checksum:
+      - md5
+      - sha256
+      - crc32
+  when:
+    event: 
+      - tag
