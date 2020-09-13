@@ -13,7 +13,8 @@ steps:
 - name: publish
   image: plugins/github-release
   settings:
-    api_key : github_deploy
+    api_key :
+      from_secret:  github_deploy
     files: versigo
     title: some title
     checksum:
